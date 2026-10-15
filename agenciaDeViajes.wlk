@@ -62,7 +62,7 @@ class PackProvincial inherits PackNacional {
 
   override method precioTotal() {
     if(self.esPremium()){
-      return super() * 1.5
+      return super() * 1.05
     } else{
       return super()
     }

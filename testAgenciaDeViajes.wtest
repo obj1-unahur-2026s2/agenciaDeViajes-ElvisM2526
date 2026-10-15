@@ -77,6 +77,6 @@ describe "Tests de sugeridos" {
     const packProvincialNeo = new PackProvincial(precioBase = 30000, listaActividades = ["ac", "as", "fg", "ra"], cantidadDeCiudades = 6, beneficiosEspeciales = [beneficio1, beneficio2, beneficio3, beneficio4])
 
     assert.that(packProvincialNeo.esPremium())
-    assert.equals(180000, packProvincialNeo.precioTotal())
+    assert.equals(126000, packProvincialNeo.precioTotal())
   }
 }
