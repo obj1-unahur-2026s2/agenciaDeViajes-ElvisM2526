@@ -26,4 +26,22 @@ describe "Tests de sugeridos" {
   }
 
   //Tests 2
+
+  test "Un guía motivado con 21 viajes realizados es considerado altamente calificado." {
+    const coordinadorJuan = new Coordinador(cantidadDeViajes = 21, estaMotivado = true)
+  
+    assert.that(coordinadorJuan.altamenteCalificado())
+  }
+
+  test "Un asistente logístico con menos de 3 años de experiencia no es calificado, aunque tenga muchos viajes." {
+    const coordinadorLeo = new Coordinador(cantidadDeViajes = 21, estaMotivado = true, anios = 2, rol = "Asistente logistico")
+    
+    assert.notThat(coordinadorLeo.altamenteCalificado())
+  }
+
+  test "Un acompañante con cualquier cantidad de viajes es siempre calificado si supera los 20." {
+    const coordinadorGustav = new Coordinador(cantidadDeViajes = 21, rol = "Acompaniante")
+    
+    assert.that(coordinadorGustav.altamenteCalificado())
+  }
 }

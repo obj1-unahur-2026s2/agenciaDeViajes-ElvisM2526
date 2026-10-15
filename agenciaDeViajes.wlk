@@ -46,7 +46,7 @@ class Coordinador {
   var cantidadDeViajes = 0 //Viajes realizados
   var estaMotivado = false
   var anios = 0 //anios de experiencia
-  var rol
+  var rol = "Guia"
   const roles = ["Guia", "Asistente logistico", "Acompaniante"] //roles existentes
 
   method cantidadDeViajes() = cantidadDeViajes
