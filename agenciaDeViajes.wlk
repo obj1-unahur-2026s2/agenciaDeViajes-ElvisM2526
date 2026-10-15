@@ -6,7 +6,7 @@ class PackInicial {
   const beneficiosEspeciales = []
   var coordinador = "gustav"
 
-  method duracion() = duracion
+  method duracion() = duracion //dias de duración
   method precioBase() = precioBase
   method beneficiosEspeciales() = beneficiosEspeciales
   method coordinador() = coordinador
@@ -16,6 +16,8 @@ class PackInicial {
 
     return precioBase + costoDeBeneficiosVigentes
   }
+
+  method esPremium() 
 }
 
 class PackNacional inherits PackInicial {
@@ -24,6 +26,10 @@ class PackNacional inherits PackInicial {
   
   method destinoProvincia() = destinoProvincia
   method listaActividades() = listaActividades
+
+  override method esPremium() {
+    return duracion > 10 and coordinador.altamenteCalificado()
+  }
 }
 
 class PackInternacional inherits PackInicial {
@@ -37,6 +43,10 @@ class PackInternacional inherits PackInicial {
 
   override method precioTotal() {
     return super() * 1.2
+  }
+
+  override method esPremium() {
+    return esDeInteres and duracion > 20 and cantidadDeEscalas == 0
   }
 }
 
