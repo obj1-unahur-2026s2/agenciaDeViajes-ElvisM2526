@@ -44,4 +44,19 @@ describe "Tests de sugeridos" {
     
     assert.that(coordinadorGustav.altamenteCalificado())
   }
+
+  //Tests 3
+
+  test "Pack Nacional es Premium" {
+    const coordinadorGustav = new Coordinador(cantidadDeViajes = 21, rol = "Acompaniante")
+    const packNacionalRed = new PackNacional(duracion = 12, precioBase = 60000, coordinador = coordinadorGustav, destinoProvincia = "Buenos Aires")
+    
+    assert.that(packNacionalRed.esPremium())
+  }
+
+  test "Pack Internacional no es Premium" {
+    const packInternacionalSapphire = new PackInternacional()
+
+    assert.notThat(packInternacionalSapphire.esPremium())
+  }
 }
