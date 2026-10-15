@@ -1,10 +1,10 @@
 //PAcks
 
 class PackInicial {
-  var duracion = 0 //dias
-  var precioBase = 0
+  const duracion = 0 //dias
+  const precioBase = 0
   const beneficiosEspeciales = []
-  var coordinador
+  var coordinador = "gustav"
 
   method duracion() = duracion
   method precioBase() = precioBase
@@ -19,7 +19,7 @@ class PackInicial {
 }
 
 class PackNacional inherits PackInicial {
-  var destinoProvincia
+  const destinoProvincia = "Buenos Aires"
   const listaActividades = []
   
   method destinoProvincia() = destinoProvincia
@@ -27,9 +27,9 @@ class PackNacional inherits PackInicial {
 }
 
 class PackInternacional inherits PackInicial {
-  var destinoPais
-  var cantidadDeEscalas = 0
-  var esDeInteres = false //lugar es de interes?
+  const destinoPais = "EE.UU"
+  const cantidadDeEscalas = 0
+  const esDeInteres = false //lugar es de interes?
 
   method destinoPais() = destinoPais
   method cantidadDeEscalas() = cantidadDeEscalas
@@ -69,7 +69,7 @@ class Coordinador {
 //Beneficios
 
 class Beneficio {
-  const tipo //el tipo de beneficio que hay
+  const tipo = "Acceso a salas VIP"//el tipo de beneficio que hay
   var costo = 0
   const estaVigente = false
 

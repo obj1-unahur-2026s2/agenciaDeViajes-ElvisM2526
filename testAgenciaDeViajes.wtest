@@ -1,0 +1,25 @@
+import agenciaDeViajes.*
+
+describe "Tests de sugeridos" {
+  test "Un pack nacional sin beneficios vigentes devuelve el mismo precio base." {
+    const beneficio1 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000)
+    const packNacionalFio = new PackNacional(duracion = 2, precioBase = 60000, beneficiosEspeciales = [beneficio1], coordinador = "Julio", destinoProvincia = "Santa Fe")
+    assert.equals(60000, packNacionalFio.precioTotal())
+  }
+
+  test "Un pack nacional con 2 beneficios vigentes suma correctamente sus costos al precio base." {
+    const beneficio1 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000, estaVigente = true)
+    const beneficio2 = new Beneficio(tipo = "Acceso a salas VIP", costo = 25000, estaVigente = true)
+    const packNacionalRed = new PackNacional(duracion = 2, precioBase = 60000, beneficiosEspeciales = [beneficio1, beneficio2], coordinador = "Gustav", destinoProvincia = "Buenos Aires")
+    
+    assert.equals(105000, packNacionalRed.precioTotal())
+  }
+
+  test "Un pack internacional sin beneficios vigentes calcula correctamente el total con el 20% de recargo." {
+    const beneficio1 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000)
+    const beneficio2 = new Beneficio(tipo = "Acceso a salas VIP", costo = 25000)
+    const packInternacionalSapphire = new PackInternacional(duracion = 2, precioBase = 60000, beneficiosEspeciales = [beneficio1, beneficio2])
+
+    assert.equals(72000, packInternacionalSapphire.precioTotal())
+  }
+}
