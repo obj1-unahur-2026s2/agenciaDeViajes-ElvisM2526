@@ -59,4 +59,24 @@ describe "Tests de sugeridos" {
 
     assert.notThat(packInternacionalSapphire.esPremium())
   }
+
+  //Tests 4
+
+  test "packProvincial no esPremium y precioTotal no recibe el 5%" {
+    const packProvincialNeo = new PackProvincial(precioBase = 20000)
+
+    assert.notThat(packProvincialNeo.esPremium())
+    assert.equals(20000, packProvincialNeo.precioTotal())
+  }
+
+  test "packProvincial si esPremium y precioTotal recibe el 5%" {
+    const beneficio1 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000, estaVigente = true)
+    const beneficio2 = new Beneficio(tipo = "Acceso a salas VIP", costo = 25000, estaVigente = true)
+    const beneficio3 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000, estaVigente = true)
+    const beneficio4 = new Beneficio(tipo = "Acceso a salas VIP", costo = 25000, estaVigente = true)
+    const packProvincialNeo = new PackProvincial(precioBase = 30000, listaActividades = ["ac", "as", "fg", "ra"], cantidadDeCiudades = 6, beneficiosEspeciales = [beneficio1, beneficio2, beneficio3, beneficio4])
+
+    assert.that(packProvincialNeo.esPremium())
+    assert.equals(180000, packProvincialNeo.precioTotal())
+  }
 }

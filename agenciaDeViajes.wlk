@@ -50,6 +50,25 @@ class PackInternacional inherits PackInicial {
   }
 }
 
+class PackProvincial inherits PackNacional {
+  var cantidadDeCiudades = 0 //cantidad de ciudades a visitar
+
+  override method esPremium() {
+    const cantidadDeActividades = listaActividades.size()
+    const cantidadDeBeneficiosVigentes = beneficiosEspeciales.filter({unBeneficio => unBeneficio.estaVigente()}).size()
+
+    return cantidadDeActividades >= 4 and cantidadDeCiudades > 5 and cantidadDeBeneficiosVigentes >= 3
+  }
+
+  override method precioTotal() {
+    if(self.esPremium()){
+      return super() * 1.5
+    } else{
+      return super()
+    }
+  }
+}
+
 //Coordinador
 
 class Coordinador {
