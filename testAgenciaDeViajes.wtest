@@ -1,6 +1,8 @@
 import agenciaDeViajes.*
 
 describe "Tests de sugeridos" {
+  //Tests 1
+
   test "Un pack nacional sin beneficios vigentes devuelve el mismo precio base." {
     const beneficio1 = new Beneficio(tipo = "Acceso a salas VIP", costo = 20000)
     const packNacionalFio = new PackNacional(duracion = 2, precioBase = 60000, beneficiosEspeciales = [beneficio1], coordinador = "Julio", destinoProvincia = "Santa Fe")
@@ -22,4 +24,6 @@ describe "Tests de sugeridos" {
 
     assert.equals(72000, packInternacionalSapphire.precioTotal())
   }
+
+  //Tests 2
 }

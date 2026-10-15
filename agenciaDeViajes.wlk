@@ -47,7 +47,7 @@ class Coordinador {
   var estaMotivado = false
   var anios = 0 //anios de experiencia
   var rol
-  const roles = ["Guia", "Asistente logistico", "Acompañente"] //roles existentes
+  const roles = ["Guia", "Asistente logistico", "Acompaniante"] //roles existentes
 
   method cantidadDeViajes() = cantidadDeViajes
   method estaMotivado() = estaMotivado
@@ -63,6 +63,10 @@ class Coordinador {
     } else{
       self.error("rol no valido")
     }
+  }
+
+  method altamenteCalificado() {
+    return cantidadDeViajes > 20 and ((rol == "Guia" and estaMotivado) or (rol == "Asistente logistico" and anios >= 3) or (rol == "Acompaniante"))
   }
 }
 
